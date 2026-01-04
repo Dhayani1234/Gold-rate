@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Gold Rate</title>
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+
+    background: url('jewel.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.container {
+    width:90%;
+    max-width:360px;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    text-align:center;
+    background: rgba(255,255,255,0.95);
+}
+
+.logo {
+    width:60%;
+    max-width:120px;
+    height:auto;
+    margin-bottom:8px;
+}
+
+.shop {
+    font-size:26px;
+    font-weight:bold;
+    color:#b8860b;
+    margin-bottom:4px;
+}
+
+.sub {
+    font-size:16px;
+    color:#333;
+    margin-bottom:12px;
+}
+
+.badge {
+    display:inline-block;
+    padding:6px 18px;
+    background:#ffd700;
+    color:#000;
+    border-radius:20px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.rate-row {
+    display:flex;
+    justify-content:space-between;
+    margin:18px 0;
+    align-items:center;
+}
+
+.rate-label {
+    font-size:20px;
+    font-weight:bold;
+    color:#b8860b;
+}
+
+.box {
+    background: rgba(0,0,0,0.1);
+    color:#b8860b;
+    padding:10px 0;
+    width:55%;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.action-buttons {
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.action-buttons a {
+    flex:1;
+    text-decoration:none;
+    color:#fff;
+    padding:10px 0;
+    border-radius:8px;
+    font-size:16px;
+    text-align:center;
+}
+
+.whatsapp { background:#25D366; }
+.call { background:#1e88e5; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <img src="logo.png" class="logo" alt="Logo">
+    <div class="shop">செந்தூரா</div>
+    <div class="sub">நகை அடகு கடை</div>
+
+    <div class="badge">Daily Price</div>
+
+    <div class="rate-row">
+        <div class="rate-label">Gold :</div>
+        <div class="box" id="goldRate">₹ ----</div>
+    </div>
+
+    <div class="rate-row">
+        <div class="rate-label">Silver :</div>
+        <div class="box" id="silverRate">₹ ----</div>
+    </div>
+
+    <div class="action-buttons">
+        <a class="whatsapp" id="shareBtn" target="_blank">💬 WhatsApp</a>
+        <a class="call" href="tel:9514340881">📞 Call Now</a>
+    </div>
+
+</div>
+
+<script>
+let gold = localStorage.getItem('gold') || '----';
+let silver = localStorage.getItem('silver') || '----';
+
+document.getElementById('goldRate').innerText = `₹ ${gold} / gram`;
+document.getElementById('silverRate').innerText = `₹ ${silver} / gram`;
+
+// WhatsApp dynamic link
+document.getElementById('shareBtn').href =
+`https://wa.me/919514340881?text=செந்தூரா நகை: Gold: ₹${gold}, Silver: ₹${silver}`;
+</script>
+
+</body>
+</html>
